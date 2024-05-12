@@ -7,7 +7,7 @@ from keras.models import load_model
 
 app = Flask(__name__)
 
-file_path = "Clap\static\js\clap_data.txt"
+file_path = "Clap_game\static\js\clap_data.txt"
 
 def cognition_txt(clap):
     with open(file_path, "a") as file:
@@ -33,7 +33,7 @@ def GenerateFrames():
     actions = ['egg clap', 'wrist clap', 'fist clap', 'edge clap']
     seq_length = 20
 
-    model = load_model("Clap\models\model.keras")
+    model = load_model("Clap_game\models\model.keras")
 
     # MediaPipe hands model
     mp_hands = mp.solutions.hands
