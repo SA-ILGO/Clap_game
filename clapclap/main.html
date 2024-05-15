@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>박수 리듬 게임</title>
+    <link rel="stylesheet" href="static/css/style.css">
+        <meta charset="utf-8">
+</head>
+
+<body>
+  <div class="horizonal">
+    <img id="logo" src="static/image/giyok_nieun_logo.gif">
+    <img id="title" src="static/image/title_clap.png">
+    <img id="home" onclick="location.href='/'"  src="static/image/home.png">
+  </div>
+  <br><br>
+  <div id="container">
+    <img id="background" src="static/image/background.png" >
+    <img id="up" src="static/image/clap.png" width="80px" height="80px" />
+
+  </div>
+
+  <br><br>  <br><br> 
+
+  <div class="horizonal">
+    <div class="score-box">
+      <img id="score-box-img" src="static/image/score-box.png">
+      <div class="score-text">
+        <h4>Score</h4>
+        <div class="score-value">100</div>
+      </div>
+    </div>    
+    <img id="webcam-box" src="static/image/score-box.png">
+  </div>
+  
+  <br>
+  <div class="horizonal">
+    <div class="button" id="reset">다시하기</div>
+  </div>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>

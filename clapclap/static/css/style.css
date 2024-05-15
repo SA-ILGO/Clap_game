@@ -1,0 +1,162 @@
+body {
+    background-color: #E6E6E8;
+}
+.horizonal {
+    display: flex;
+    justify-content: center;
+    border: 1px;
+    margin: 1px;
+}
+#video_container {
+    margin: 4px;
+    width: 500px;
+    height: 445px;
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
+    margin:10px;
+}
+#main_logo {
+    width: 400px;
+    height: 400px;
+    margin-top:70px;
+}
+#name {
+    font-size: 30px;
+    text-shadow: 3px 3px 1px #743F21;
+    color: #FFA3A3;
+    margin-left: 160px;
+    margin-right:
+    160px;
+}
+#title {
+    width: 600px;
+    height: 120px;
+}
+#home {
+    padding: 10px;
+    border-radius: 40px;
+    width: 70px;
+    height: 70px;
+    margin:20px;
+}
+#home:hover {
+    background-color: #ffffff;
+}
+#container {
+    position: relative;
+    width: 100%;
+    height: 200px; /* 배경 이미지의 높이 */
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; /* 배경 이미지의 z-index 설정 */
+    width: 100%; /* 필요에 따라 설정하세요 */
+    height: 200px; /* 필요에 따라 설정하세요 */
+}
+
+#up {
+    position: absolute;
+    right: 0;
+    top: 28%;
+    left: auto;
+    z-index: 1; /* 클랩 이미지의 z-index 설정 */
+    width: 80px; /* 필요에 따라 설정하세요 */
+    height: 80px; /* 필요에 따라 설정하세요 */
+    animation: moveLeft 5s ease-out infinite; /* 움직이는 애니메이션 설정 */
+    /* transform: translateY(-50%);
+    transition: transform 1s ease; */
+}
+
+
+  @keyframes moveLeft {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+    from {
+        right: -10; /* 시작 위치 */
+    }
+    to {
+        right: 120%; /* 왼쪽 끝으로 이동 */
+    }
+  }
+
+/* @keyframes moveLeft {
+
+/* } */
+
+.button {
+    background-color: #ffffff;
+    margin: 20px;
+    margin-top: 20px;
+    width: 220px;
+    height: 50px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 1px #ddbae4;
+    text-align: center;
+    font-size:30px;
+    color: #CB6CE6;
+    text-shadow: 2px 2px 1px #ddbae4;
+}
+.button:hover {
+    box-shadow: 0px 0px 0px #c75ee4;
+}
+.score-box {
+    width: 50%; /* 왼쪽 절반 */
+    float: left; /* 왼쪽으로 배치 */
+  }
+  
+
+  
+  .score-box {
+    margin-left: 50px;
+    position: relative;
+    width: 500px; /* 원하는 너비로 조절 */
+    height: 300px; /* 원하는 높이로 조절 */
+    margin-right: 10px; /* 원하는 간격으로 조정하세요 */
+  }
+  
+  #webcam-box{
+    margin-right: 100px;
+    float:right;
+    width: 500px;
+    height: 300px;
+    
+  }
+
+  #score-box-img {
+    width: 100%; /* 이미지를 부모 요소에 맞게 조절 */
+    height: 100%; /* 이미지를 부모 요소에 맞게 조절 */
+  }
+  
+  .score-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* 텍스트를 가운데 정렬 */
+  }
+  
+  .score-text h4, .score-text .score-value {
+    margin: 0;
+  }
+
+  .clap-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px; /* clap.png 이미지의 너비를 조절하세요 */
+    height: 50px; /* clap.png 이미지의 높이를 조절하세요 */
+    /* 애니메이션 관련 스타일 */
+    animation-name: moveClap;
+    animation-duration: 5s; /* 애니메이션 지속 시간을 조절하세요 */
+    animation-timing-function: linear; /* 애니메이션 속도를 조절하세요 */
+    animation-iteration-count: infinite;
+}
+
+
+
