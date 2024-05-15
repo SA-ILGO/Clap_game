@@ -146,15 +146,26 @@ def GenerateFrames():
 
     cv2.destroyAllWindows()
 
-
+def GenerateFrames2():
+    print("JIWON")
+    # 코드 넣는 곳
 
 @app.route('/clap_memory', methods=["GET", "POST"])
 def clap_memory():
       return render_template('clap_memory.html')  
 
+@app.route('/clap_rythem', methods=["GET", "POST"])
+def clap_rythem():
+      return render_template('clap_rythem.html') 
+
 @app.route('/stream')
 def Stream():
       return Response(GenerateFrames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/stream2')
+def Stream2():
+      return Response(GenerateFrames2(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 @app.route('/')
 def main():
