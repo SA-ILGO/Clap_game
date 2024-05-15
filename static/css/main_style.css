@@ -1,6 +1,6 @@
 body {
-    background-color: #E6E6E8;
-    background-image: url('static/img/background1.png');
+    background-image: url("background1.png");
+    background-size: 1210px;
     font-family: 'Bagel Fat One', cursive; 
 }
 .horizonal {

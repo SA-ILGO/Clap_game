@@ -5,9 +5,12 @@ import numpy as np
 import tensorflow
 from tensorflow import keras
 from keras.models import load_model
+from flask_socketio import SocketIO, emit  # SocketIO import 추가
+
 
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 
 file_path = "Clap_game\static\js\clap_data.txt"
 
@@ -149,10 +152,16 @@ def GenerateFrames():
 
     cv2.destroyAllWindows()
 
+def point_inside_rect(x, y, rect):
+    x1, y1, x2, y2 = rect
+    return x1 <= x <= x2 and y1 <= y <= y2
+
+
 def GenerateFrames2():
     flag2 = 0
     left_hand_position = 0
     right_hand_position = 400
+    score = 0
 
     # MediaPipe hands model
     mp_hands = mp.solutions.hands
@@ -163,6 +172,8 @@ def GenerateFrames2():
         min_tracking_confidence=0.5)
 
     win_w, win_h = cap.get(cv2.CAP_PROP_FRAME_WIDTH), cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+
+    rectangle1 = (228, 183, 382, 382)
 
     while cap.isOpened():
         ret, img = cap.read()
@@ -191,6 +202,9 @@ def GenerateFrames2():
                     if right_hand_position - left_hand_position < 150:
                         action = "Clap!!"
                         flag2 = 0 
+                        
+                        if point_inside_rect(right_hand_position, left_hand_position, rectangle1):
+                            score += 10
    
                 elif flag2 == 0:
                     if right_hand_position - left_hand_position > 150:
@@ -229,5 +243,15 @@ def Stream2():
 def main():
     return render_template('main.html')
 
+@socketio.on('clap')
+def handle_clap():
+    emit('show_clap')
+# def handle_clap():
+#     global score
+#     score += 10
+#     emit('update_score', score)
+
+
 if __name__ == "__main__":
-      app.run()
+    # Flask 애플리케이션과 소켓IO를 함께 실행
+    socketio.run(app, debug=True)

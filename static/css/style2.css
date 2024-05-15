@@ -60,30 +60,68 @@ body {
     height: 200px; /* 필요에 따라 설정하세요 */
 }
 
+
 #up {
+    z-index: 1;
     position: absolute;
-    right: 0;
-    top: 28%;
-    left: auto;
-    z-index: 1; /* 클랩 이미지의 z-index 설정 */
-    width: 80px; /* 필요에 따라 설정하세요 */
-    height: 80px; /* 필요에 따라 설정하세요 */
-    animation: moveLeft 5s ease-out infinite; /* 움직이는 애니메이션 설정 */
-    /* transform: translateY(-50%);
-    transition: transform 1s ease; */
+    left: 100%; /* 초기 위치 설정 (오른쪽 끝) */
+    top:24%;
+    width: 80px;
+    height: 80px;
+    animation-name: moveLeft; /* 애니메이션 이름 설정 */
+    animation-duration: 5s; /* 한 사이클의 애니메이션에 소요되는 시간 설정 */
+    animation-timing-function: linear; /* 애니메이션 진행 속도, 가속 방식 설정 */
+    animation-delay: 0s; /* 애니메이션 시작 전 대기 시간 설정 */
+    animation-iteration-count: infinite; /* 애니메이션 반복 횟수 설정 (무한반복) */
+    animation-direction: normal; /* 애니메이션 반복 시 진행 방향 설정 */
+    animation-fill-mode: forwards; /* 애니메이션 미실행 시 요소의 스타일 설정 */
+    animation-play-state: running; /* 애니메이션 재생 상태 설정 */
+    animation-iteration-count: 10;
+}
+#up1 {
+    z-index: 1;
+    position: absolute;
+    left: 100%; /* 초기 위치 설정 (오른쪽 끝) */
+    top:24%;
+    width: 80px;
+    height: 80px;
+    animation-name: moveLeft; /* 애니메이션 이름 설정 */
+    animation-duration: 5s; /* 한 사이클의 애니메이션에 소요되는 시간 설정 */
+    animation-timing-function: linear; /* 애니메이션 진행 속도, 가속 방식 설정 */
+    animation-delay: 2s; /* 애니메이션 시작 전 대기 시간 설정 */
+    animation-iteration-count: infinite; /* 애니메이션 반복 횟수 설정 (무한반복) */
+    animation-direction: normal; /* 애니메이션 반복 시 진행 방향 설정 */
+    animation-fill-mode: forwards; /* 애니메이션 미실행 시 요소의 스타일 설정 */
+    animation-play-state: running; /* 애니메이션 재생 상태 설정 */
+    animation-iteration-count: 10;
 }
 
+#up2 {
+    z-index: 1;
+    position: absolute;
+    left: 100%;
+    top:24%;
+    width: 80px;
+    height: 80px;
+    animation-name: moveLeft; /* 애니메이션 이름 설정 */
+    animation-duration: 5s; /* 한 사이클의 애니메이션에 소요되는 시간 설정 */
+    animation-timing-function: linear; /* 애니메이션 진행 속도, 가속 방식 설정 */
+    animation-delay: 10s; /* 애니메이션 시작 전 대기 시간 설정 */
+    animation-direction: normal; /* 애니메이션 반복 시 진행 방향 설정 */
+    animation-fill-mode: forwards; /* 애니메이션 미실행 시 요소의 스타일 설정 */
+    /*animation-play-state: running; /* 애니메이션 재생 상태 설정 */
+    animation-iteration-count: 3;
+}
 
-  @keyframes moveLeft {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(0); }
+@keyframes moveLeft {
     from {
-        right: -10; /* 시작 위치 */
+        left: 100%; /* 시작 위치 (오른쪽 끝) */
     }
     to {
-        right: 120%; /* 왼쪽 끝으로 이동 */
+        left: -5%; /* 왼쪽 끝으로 이동 */
     }
-  }
+}
+
 
 /* @keyframes moveLeft {
 
