@@ -2,6 +2,8 @@ from flask import Flask, render_template, Response
 import cv2
 import mediapipe as mp
 import numpy as np
+import tensorflow
+from tensorflow import keras
 from keras.models import load_model
 
 
@@ -33,7 +35,7 @@ def GenerateFrames():
     actions = ['egg clap', 'wrist clap', 'fist clap', 'edge clap']
     seq_length = 20
 
-    model = load_model("Clap_game\models\model.keras")
+    model = load_model("Clap_game\models\model2.keras")
 
     # MediaPipe hands model
     mp_hands = mp.solutions.hands
@@ -148,7 +150,6 @@ def GenerateFrames():
 
 def GenerateFrames2():
     print("JIWON")
-    # 코드 넣는 곳
 
 @app.route('/clap_memory', methods=["GET", "POST"])
 def clap_memory():
