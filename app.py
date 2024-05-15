@@ -230,6 +230,10 @@ def clap_memory():
 def clap_rythem():
       return render_template('clap_rythem.html') 
 
+@app.route('/clap_practice', methods=["GET", "POST"])
+def clap_practice():
+      return render_template('clap_practice.html') 
+
 @app.route('/stream')
 def Stream():
       return Response(GenerateFrames(), mimetype='multipart/x-mixed-replace; boundary=frame')
