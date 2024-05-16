@@ -1,6 +1,6 @@
 body {
     background-color: #E6E6E8;
-    
+    font-family: 'Bagel Fat One', cursive; 
 }
 .horizonal {
     display: flex;
@@ -9,7 +9,7 @@ body {
     margin: 1px;
 }
 #video_container {
-    width: 150px;
+    width: 300px;
     height: 300px;
 }
 
@@ -47,7 +47,7 @@ body {
 
 #canvas {
     position: absolute;
-    top: 140px;
+    top: 185px;
     left: 10px;
     z-index: -1; /* canvas를 이미지 위로 올림 */
     background-color: #AD7B98;
@@ -81,14 +81,23 @@ body {
 .button:hover {
     box-shadow: 0px 0px 0px #c75ee4;
 }
-
-  .score-box {
-    margin-left: 345px;
-    float: left; /* 왼쪽으로 배치 */
+#score{
+    background-color: #ffffff;
+    width: 100px;
+    height: 75px;
+    border-radius: 100px;
+    box-shadow: 5px 5px 1px #743F21;
+    font-size:25px;
+    color: #743F21;
+    text-shadow: 2px 2px 1px #e4baba;
+}
+  .score-text   {
+    color: #743F21;
+    text-shadow: 2px 2px 1px #e4baba;
     position: relative;
-    width: 500px; /* 원하는 너비로 조절 */
-    height: 354px; /* 원하는 높이로 조절 */
-    margin-right: 10px; /* 원하는 간격으로 조정하세요 */
+    height: 510px; /* 원하는 높이로 조절 */
+    margin: auto;
+    font-size: 30px;
   }
   
   #webcam-box{
@@ -174,13 +183,11 @@ body {
     color: #dfadad;
 }
 #name {
-    font-size: 70px;
+    font-size: 60px;
     text-shadow: 3px 3px 1px #743F21;
     color: #FFA3A3;
     margin-left: 160px;
     margin-right: 160px;
-    font-family: "Jua", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
 #logo {
