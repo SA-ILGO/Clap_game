@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>박수 리듬 게임</title>
     <link rel="stylesheet" href="static/css/style2.css">
-        <meta charset="utf-8">
+    <meta charset="utf-8">
+    <script src="static\js\clap_rythem.js" defer></script>
 </head>
 
 <body>
+  <canvas id="canvas" width="800" height="400"></canvas>
+
   <div class="horizonal">
     <img id="logo" src="static\img\Gieoknieun_logo.gif">
     <img id="title" src="static/img/title_clap.png">
@@ -16,17 +19,20 @@
   <br><br>
   <div id="container">
     <img id="background" src="static/img/background.png" >
-    <img id="up" src="static/img/clap.png" style="width: 80px; height: 80px;">
+    <script>
+      frameRun()
+    </script>
+    <!-- <img id="up" src="static/img/clap.png" style="width: 80px; height: 80px;"> -->
   </div>
-  <div>
+  <!-- <div>
     <img id="up1" src="static/img/clap.png" style="width: 80px; height: 80px;">
-  </div>
+  </div> -->
   <br><br>  <br><br> 
 
   <div class="horizonal">
     <div class="score-box">
       <img id="score-box-img" src="static/img/score-box.png">
-      <div class="score-text">  <h5><div id="clap_display"></div></h5>      Score : 0</div>
+      <div class="score-text"> Score : 0</div>
       </div>
       <div class="col-lg-8  offset-lg-2">
         <img src="{{ url_for('Stream2') }}" width="65%">
@@ -38,17 +44,8 @@
   <div class="horizonal">
     <div class="button" id="reset">다시하기</div>
   </div>
-  
-  <!--<script src="{{ url_for('static', filename='js/clap_rythem.js') }}"></script>-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
-    <script>
-        const socket = io();
 
-        socket.on('show_clap', function(show_clap) {
-            const clapDisplay = document.getElementById("clap_display");
-            clapDisplay.innerText = "키키키키";
-        });
-    </script>
+
 
 </body>
 </html>
