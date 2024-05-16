@@ -5,12 +5,8 @@ import numpy as np
 import tensorflow
 from tensorflow import keras
 from keras.models import load_model
-from flask_socketio import SocketIO, emit  # SocketIO import 추가
-
-
 
 app = Flask(__name__)
-socketio = SocketIO(app)
 
 file_path = "Clap_game\static\js\clap_data.txt"
 
@@ -152,10 +148,18 @@ def GenerateFrames():
 
     cv2.destroyAllWindows()
 
-def point_inside_rect(x, y, rect):
-    x1, y1, x2, y2 = rect
-    return x1 <= x <= x2 and y1 <= y <= y2
+# def detect_image_reached():
+#     img = cv2.imread('static\img\clap.png')
+#     target_coordinate = 228
+#     while True:
+#         img_center_X = img.shape[1] // 2
+                        
+#         distance = abs(img_center_X - target_coordinate)
 
+#         if distance < 5:
+#             return True
+#         else:
+#             return False
 
 def GenerateFrames2():
     flag2 = 0
@@ -202,10 +206,7 @@ def GenerateFrames2():
                     if right_hand_position - left_hand_position < 150:
                         action = "Clap!!"
                         flag2 = 0 
-                        
-                        if point_inside_rect(right_hand_position, left_hand_position, rectangle1):
-                            score += 10
-   
+
                 elif flag2 == 0:
                     if right_hand_position - left_hand_position > 150:
                         action = "Ready..."
@@ -222,6 +223,10 @@ def GenerateFrames2():
 
     cv2.destroyAllWindows()
 
+
+
+
+
 @app.route('/clap_memory', methods=["GET", "POST"])
 def clap_memory():
       return render_template('clap_memory.html')  
@@ -229,10 +234,6 @@ def clap_memory():
 @app.route('/clap_rythem', methods=["GET", "POST"])
 def clap_rythem():
       return render_template('clap_rythem.html') 
-
-@app.route('/clap_practice', methods=["GET", "POST"])
-def clap_practice():
-      return render_template('clap_practice.html') 
 
 @app.route('/stream')
 def Stream():
@@ -247,15 +248,6 @@ def Stream2():
 def main():
     return render_template('main.html')
 
-@socketio.on('clap')
-def handle_clap():
-    emit('show_clap')
-# def handle_clap():
-#     global score
-#     score += 10
-#     emit('update_score', score)
-
-
 if __name__ == "__main__":
-    # Flask 애플리케이션과 소켓IO를 함께 실행
-    socketio.run(app, debug=True)
+      app.run(debug=True)
+

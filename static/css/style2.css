@@ -72,11 +72,10 @@ body {
     animation-duration: 5s; /* 한 사이클의 애니메이션에 소요되는 시간 설정 */
     animation-timing-function: linear; /* 애니메이션 진행 속도, 가속 방식 설정 */
     animation-delay: 0s; /* 애니메이션 시작 전 대기 시간 설정 */
-    animation-iteration-count: infinite; /* 애니메이션 반복 횟수 설정 (무한반복) */
     animation-direction: normal; /* 애니메이션 반복 시 진행 방향 설정 */
     animation-fill-mode: forwards; /* 애니메이션 미실행 시 요소의 스타일 설정 */
     animation-play-state: running; /* 애니메이션 재생 상태 설정 */
-    animation-iteration-count: 10;
+    animation-iteration-count: 10; 
 }
 #up1 {
     z-index: 1;
@@ -89,7 +88,6 @@ body {
     animation-duration: 5s; /* 한 사이클의 애니메이션에 소요되는 시간 설정 */
     animation-timing-function: linear; /* 애니메이션 진행 속도, 가속 방식 설정 */
     animation-delay: 2s; /* 애니메이션 시작 전 대기 시간 설정 */
-    animation-iteration-count: infinite; /* 애니메이션 반복 횟수 설정 (무한반복) */
     animation-direction: normal; /* 애니메이션 반복 시 진행 방향 설정 */
     animation-fill-mode: forwards; /* 애니메이션 미실행 시 요소의 스타일 설정 */
     animation-play-state: running; /* 애니메이션 재생 상태 설정 */
@@ -118,7 +116,7 @@ body {
         left: 100%; /* 시작 위치 (오른쪽 끝) */
     }
     to {
-        left: -5%; /* 왼쪽 끝으로 이동 */
+        left: -10%; /* 왼쪽 끝으로 이동 */
     }
 }
 
