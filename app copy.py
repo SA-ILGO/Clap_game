@@ -209,16 +209,16 @@ def GenerateFrames2():
                 if flag2 == 1:
                     if right_hand_position - left_hand_position < 150:
                         action = "Clap!!"
-                        # clap_rhythm(action)
+                        clap_rhythm(action)
                         flag2 = 0 
    
                 elif flag2 == 0:
                     if right_hand_position - left_hand_position > 150:
                         action = "Ready..."
-                        # clap_rhythm(action)
+                        clap_rhythm(action)
                         flag2 = 1
                 
-                clap_rhythm(action)
+                # clap_rhythm(action)
                             
                 cv2.putText(img, f'{action.upper()}', 
                             org=(int(win_w/2 - len(action.upper())*6), int(win_h/10)),  

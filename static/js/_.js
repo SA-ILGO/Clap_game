@@ -93,16 +93,18 @@ function isBumped(dino, cactus) {
                 var lines = data.split('\n');
                 var clap = lines[lines.length - 1];
 
+                // console.log(clap);
+
                 if(flag == 0 && clap == "Clap!!"){
                     score += 10;
                     flag = 1;
                     updateScore(score); // score를 업데이트하는 함수 호출
-                    // console.log(score);
+                    console.log(score);
 
                 }
                 else if(flag == 1 && clap == "Ready..."){
                     flag = 0;
-                    // console.log(clap);
+                    console.log(clap);
                 }
                 
             })
