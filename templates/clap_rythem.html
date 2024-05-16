@@ -1,51 +1,46 @@
 <!DOCTYPE html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<head>
-    <meta charset="UTF-8">
-    <title>박수 리듬 게임</title>
-    <link rel="stylesheet" href="static/css/style2.css">
+  <head>
     <meta charset="utf-8">
-    <script src="static\js\clap_rythem.js" defer></script>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/style2.css') }}">
+    <title>STREAMING</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
 
-<body>
-  <canvas id="canvas" width="800" height="400"></canvas>
+    <script src="{{ url_for('static', filename='js/_.js') }}"></script>
 
-  <div class="horizonal">
-    <img id="logo" src="static\img\Gieoknieun_logo.gif">
-    <img id="title" src="static/img/title_clap.png">
-    <img id="home" onclick="location.href='/'"  src="static/img/home.png">
-  </div>
-  <br><br>
-  <div id="container">
-    <img id="background" src="static/img/background.png" >
-    <script>
-      frameRun()
-    </script>
-    <!-- <img id="up" src="static/img/clap.png" style="width: 80px; height: 80px;"> -->
-  </div>
-  <!-- <div>
-    <img id="up1" src="static/img/clap.png" style="width: 80px; height: 80px;">
-  </div> -->
-  <br><br>  <br><br> 
+    <div class="horizonal">
+      <img id="logo" src="static\img\Gieoknieun_logo.gif">
+      <div id="name">박수 리듬 게임</div>
+      <img id="home" onclick="location.href='/'"  src="static/img/home.png">
+    </div>
 
-  <div class="horizonal">
-    <div class="score-box">
-      <img id="score-box-img" src="static/img/score-box.png">
-      <div class="score-text"> Score : 0</div>
+    <!--<div id="container">
+      <img id="background" src="static/img/background.png" > 
+    </div> -->
+
+
+    <br><br> <br><br> <br><br> <br><br><br><br> <br><br> 
+
+      <div id = "horizonal">
+          <div class="score-box">
+            <img id="score-box-img" src="static/img/score-box.png">
+            <div class="score-text"> Score : 0</div>
+          </div>
+          <div class="video-container">
+            <div class="col-lg-8  offset-lg-2">
+              <img src="{{ url_for('Stream2') }}" width="28%">
+            </div>
+        </div>
       </div>
-      <div class="col-lg-8  offset-lg-2">
-        <img src="{{ url_for('Stream2') }}" width="65%">
-      </div>
-    </div>    
-    
-  </div>
-  <br>
-  <div class="horizonal">
-    <div class="button" id="reset">다시하기</div>
-  </div>
-
-
-
-</body>
+  
+    <div class="horizonal">
+      <div class="button" id="reset">다시하기</div>
+      <!-- <div class="button" id="answer">정  답</div> -->
+    </div>
+  </body>
 </html>

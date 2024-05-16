@@ -1,5 +1,6 @@
 body {
     background-color: #E6E6E8;
+    
 }
 .horizonal {
     display: flex;
@@ -8,9 +9,8 @@ body {
     margin: 1px;
 }
 #video_container {
-    margin: 4px;
-    width: 500px;
-    height: 445px;
+    width: 150px;
+    height: 300px;
 }
 
 #logo {
@@ -23,14 +23,7 @@ body {
     height: 400px;
     margin-top:70px;
 }
-#name {
-    font-size: 30px;
-    text-shadow: 3px 3px 1px #743F21;
-    color: #FFA3A3;
-    margin-left: 160px;
-    margin-right:
-    160px;
-}
+
 #title {
     width: 600px;
     height: 120px;
@@ -46,10 +39,22 @@ body {
     background-color: #ffffff;
 }
 #container {
+    z-index: 0;
     position: relative;
     width: 100%;
-    height: 200px; /* 배경 이미지의 높이 */
+    height: 600px; /* 배경 이미지의 높이 */
 }
+
+#canvas {
+    position: absolute;
+    top: 140px;
+    left: 10px;
+    z-index: -1; /* canvas를 이미지 위로 올림 */
+    background-color: #ddbae4;
+    width: 1800px;
+    height: 200px;
+}
+
 
 #background {
     position: absolute;
@@ -59,71 +64,6 @@ body {
     width: 100%; /* 필요에 따라 설정하세요 */
     height: 200px; /* 필요에 따라 설정하세요 */
 }
-
-
-#up {
-    z-index: 1;
-    position: absolute;
-    left: 100%; /* 초기 위치 설정 (오른쪽 끝) */
-    top:24%;
-    width: 80px;
-    height: 80px;
-    animation-name: moveLeft; /* 애니메이션 이름 설정 */
-    animation-duration: 5s; /* 한 사이클의 애니메이션에 소요되는 시간 설정 */
-    animation-timing-function: linear; /* 애니메이션 진행 속도, 가속 방식 설정 */
-    animation-delay: 0s; /* 애니메이션 시작 전 대기 시간 설정 */
-    animation-direction: normal; /* 애니메이션 반복 시 진행 방향 설정 */
-    animation-fill-mode: forwards; /* 애니메이션 미실행 시 요소의 스타일 설정 */
-    animation-play-state: running; /* 애니메이션 재생 상태 설정 */
-    animation-iteration-count: 10; 
-}
-#up1 {
-    z-index: 1;
-    position: absolute;
-    left: 100%; /* 초기 위치 설정 (오른쪽 끝) */
-    top:24%;
-    width: 80px;
-    height: 80px;
-    animation-name: moveLeft; /* 애니메이션 이름 설정 */
-    animation-duration: 5s; /* 한 사이클의 애니메이션에 소요되는 시간 설정 */
-    animation-timing-function: linear; /* 애니메이션 진행 속도, 가속 방식 설정 */
-    animation-delay: 2s; /* 애니메이션 시작 전 대기 시간 설정 */
-    animation-direction: normal; /* 애니메이션 반복 시 진행 방향 설정 */
-    animation-fill-mode: forwards; /* 애니메이션 미실행 시 요소의 스타일 설정 */
-    animation-play-state: running; /* 애니메이션 재생 상태 설정 */
-    animation-iteration-count: 10;
-}
-
-#up2 {
-    z-index: 1;
-    position: absolute;
-    left: 100%;
-    top:24%;
-    width: 80px;
-    height: 80px;
-    animation-name: moveLeft; /* 애니메이션 이름 설정 */
-    animation-duration: 5s; /* 한 사이클의 애니메이션에 소요되는 시간 설정 */
-    animation-timing-function: linear; /* 애니메이션 진행 속도, 가속 방식 설정 */
-    animation-delay: 10s; /* 애니메이션 시작 전 대기 시간 설정 */
-    animation-direction: normal; /* 애니메이션 반복 시 진행 방향 설정 */
-    animation-fill-mode: forwards; /* 애니메이션 미실행 시 요소의 스타일 설정 */
-    /*animation-play-state: running; /* 애니메이션 재생 상태 설정 */
-    animation-iteration-count: 3;
-}
-
-@keyframes moveLeft {
-    from {
-        left: 100%; /* 시작 위치 (오른쪽 끝) */
-    }
-    to {
-        left: -10%; /* 왼쪽 끝으로 이동 */
-    }
-}
-
-
-/* @keyframes moveLeft {
-
-/* } */
 
 .button {
     background-color: #ffffff;
@@ -141,18 +81,13 @@ body {
 .button:hover {
     box-shadow: 0px 0px 0px #c75ee4;
 }
-.score-box {
-    width: 50%; /* 왼쪽 절반 */
-    float: left; /* 왼쪽으로 배치 */
-  }
-  
 
-  
   .score-box {
-    margin-left: 50px;
+    margin-left: 345px;
+    float: left; /* 왼쪽으로 배치 */
     position: relative;
     width: 500px; /* 원하는 너비로 조절 */
-    height: 300px; /* 원하는 높이로 조절 */
+    height: 354px; /* 원하는 높이로 조절 */
     margin-right: 10px; /* 원하는 간격으로 조정하세요 */
   }
   
@@ -196,3 +131,154 @@ body {
 
 
 
+.text {
+    color:rgb(238, 144, 37);
+    
+}
+#main_text {
+    margin-top: 10px;
+    text-align: center;
+    color: #ffc3c3;
+}
+#result_text {
+    font-size: 50px;
+    color:#5c4410;
+}
+#modal_text {
+    font-size: 50px;
+    color:#5c4410;
+}
+#round {
+    background-color: #743F21;
+    border-radius: 50px;
+    box-shadow: 3px 3px 1px #ffb7d1;
+    margin: auto;
+    margin-top: 6px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    color:#ffffff;
+    text-align: center;
+}
+#home:hover {
+    background-color: #ffffff;
+}
+#sample_img {
+    width: 380px;
+    height: 380px;
+    border-radius: 20px;
+}
+#sample_text {
+    font-size: 60px;
+    text-shadow: 3px 3px 1px #a06746;
+    color: #dfadad;
+}
+#name {
+    font-size: 70px;
+    text-shadow: 3px 3px 1px #743F21;
+    color: #FFA3A3;
+    margin-left: 160px;
+    margin-right: 160px;
+}
+#logo {
+    width: 100px;
+    height: 100px;
+    margin:10px;
+}
+#main_logo {
+    width: 400px;
+    height: 400px;
+    margin-top:70px;
+}
+.button {
+    background-color: #ffffff;
+    margin: 20px;
+    margin-top: 20px;
+    width: 220px;
+    height: 50px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 1px #743F21;
+    text-align: center;
+    font-size:30px;
+    color: #743F21;
+    text-shadow: 2px 2px 1px #e4baba;
+}
+.main_button {
+    background-color: #ffffffb2;
+    box-shadow: 6px 6px 1px #ffd504;
+    margin-top: 20px;
+    width: 250px;
+    height: 47px;
+    border-radius: 15px;
+    text-align: center;
+    font-size:30px;
+    color: #607e19;
+}
+.main_button_flower{
+    width: 80px;
+    height: 80px;
+}
+.button:hover {
+    box-shadow: 0px 0px 0px #743F21;
+}
+.main_button:hover {
+    box-shadow: 0px 0px 0px #743F21;
+}
+.modal {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    background-color: rgba(255, 255, 255, 0.475);
+    z-index: 9999; 
+}
+.result_modal {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    background-color: rgba(255, 255, 255, 0.475);
+    z-index: 9999;
+}
+.text {
+    color:rgb(238, 144, 37);
+    
+}
+.modal_body{
+    width:230px;  
+    height:200px; 
+    padding:10px;  
+    text-align: center;
+    background-color: rgb(255, 248, 171); 
+    border-radius:40px;  
+    box-shadow:5px 5px 1px rgb(103, 130, 34);
+    transform:translateY(100%); 
+}
+.result_modal_body{
+    width:400px;  
+    height:300px; 
+    padding:10px;  
+    text-align: center;
+    background-color: rgb(255, 248, 171); 
+    border-radius:40px;  
+    box-shadow:5px 5px 1px rgb(103, 130, 34);
+    transform:translateY(50%); 
+}
+
+
+.cognition {
+    background-color: #bd86a6;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: 4px 4px 1px #743F21;
+    margin: 4px;
+    margin-top: 6px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    color: #ffffff;
+    text-shadow: 2px 2px 1px #a17070;
+}

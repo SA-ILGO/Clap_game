@@ -9,9 +9,9 @@ from keras.models import load_model
 
 app = Flask(__name__)
 
-file_path1 = "Clap_game\static\js\clap_data.txt"
-file_path2 = "Clap_game\static\js\clap_data_now.txt"
-file_path3 = "Clap_game\static\js\clap_data_rhythm.txt"
+file_path1 = "static/js/clap_data.txt"
+file_path2 = "static/js/clap_data_now.txt"
+file_path3 = "static\js\clap_data_rhythm.txt"
 
 def cognition_txt(clap):
     with open(file_path1, "a") as file:
@@ -49,8 +49,8 @@ def GenerateFrames():
     actions = ['egg clap', 'wrist clap', 'fist clap', 'edge clap']
     seq_length = 20
 
-    model = load_model("Clap_game\models\model.keras")
-    #model = load_model("Clap_game\models\model2.keras")
+    #model = load_model("Clap_game\models\model.keras")
+    model = load_model("Clap_game\models\model2.keras")
 
     # MediaPipe hands model
     mp_hands = mp.solutions.hands
@@ -209,15 +209,16 @@ def GenerateFrames2():
                 if flag2 == 1:
                     if right_hand_position - left_hand_position < 150:
                         action = "Clap!!"
-                        clap_rhythm(action)
+                        # clap_rhythm(action)
                         flag2 = 0 
    
                 elif flag2 == 0:
                     if right_hand_position - left_hand_position > 150:
                         action = "Ready..."
-                        clap_rhythm(action)
+                        # clap_rhythm(action)
                         flag2 = 1
-
+                
+                clap_rhythm(action)
                             
                 cv2.putText(img, f'{action.upper()}', 
                             org=(int(win_w/2 - len(action.upper())*6), int(win_h/10)),  
@@ -258,6 +259,7 @@ def Stream2():
 @app.route('/')
 def main():
     return render_template('main.html')
+
 
 if __name__ == "__main__":
       app.run(debug=True)
