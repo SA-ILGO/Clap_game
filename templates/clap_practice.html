@@ -2,27 +2,47 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href=" {{ url_for('static', filename='css/practice.css') }}">
         <title>GiyokNieunMain</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
     </head>
 <body>
-    <div class="horizonal">
-            
+    <div class="horizonal">      
         <img id="logo" src="static/img/Gieoknieun_logo.gif">
-        <div id="name">건강박수기억력게임</div>
+        <div id="name">연습 공간</div>
         <img id="home" onclick="location.href='/'"  src="static/img/home.png">
     </div>
-        <div class="horizonal">
+        <div class="horizonal" id="clapBox">
                 <div>
-                    <img id="main_logo" src="static/img/egg_clap.png">
-                    <img id="main_logo" src="static/img/edge_clap.png">
-                    <img id="main_logo" src="static/img/fist_clap.png">
-                    <img id="main_logo" src="static/img/wrist_clap.png">
+                    <div class="exp">달걀박수</div>
+                    <img class="clap" id="egg" src="static/img/egg_clap.png">
+                    <div class="exp">egg clap</div>
+                </div>
+                <div>
+                    <div class="exp">손날박수</div>
+                    <img class="clap" id="edge" src="static/img/edge_clap.png">
+                    <div class="exp">edge clap</div>
+                </div>
+                <div>
+                    <div class="exp">주먹박수</div>
+                    <img class="clap" id="fist" src="static/img/fist_clap.png">
+                    <div class="exp">fist clap</div>
+                </div>
+                <div>
+                    <div class="exp">손목박수</div>
+                    <img class="clap" id="wrist" src="static/img/wrist_clap.png">
+                    <div class="exp">wrist clap</div>
+                </div>
                 </div>
         </div>
     </div>
+    <div id="cam">
+        <div class="col-lg-8  offset-lg-2">
+            <img src="{{ url_for('Stream') }}" width="45%">
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/clap_practice.js') }}"></script>
 </body>
 </html>

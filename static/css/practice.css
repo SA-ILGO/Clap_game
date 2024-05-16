@@ -1,0 +1,84 @@
+body {
+    background-color: #dadada;
+    font-family: 'Bagel Fat One', cursive; 
+}
+.horizonal {
+    display: flex;
+    justify-content: center;
+    margin: 1px;
+}
+#logo {
+    width: 100px;
+    height: 100px;
+}
+#name {
+    font-size: 50px;
+    color: #343434;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+#home {
+    padding: 10px;
+    border-radius: 40px;
+    width: 70px;
+    height: 70px;
+}
+#home:hover {
+    background-color: #ffffff;
+}
+.button {
+    background-color: #ffffff;
+    margin: 20px;
+    margin-top: 20px;
+    width: 220px;
+    height: 50px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 1px #743F21;
+    text-align: center;
+    font-size:30px;
+    color: #743F21;
+    text-shadow: 2px 2px 1px #e4baba;
+}
+.clap {
+    padding: 5px;
+    border-radius: 30px;
+    border-style: dotted;
+    border-width: 4px;
+    width: 90px;
+    height: 90px;
+    margin-right:10px;
+    margin-left:10px;
+}
+#egg {
+    border-color: #ffffff;
+}
+#edge {
+    border-color: #ffffff;
+}
+#fist {
+    border-color: #ffffff;
+}
+#wrist {
+    border-color: #ffffff;
+}
+#clapBox {
+    padding: 10px;
+    border-radius: 100px;
+    margin: auto;
+    width: 600px;
+    background-color: #07583069;
+    transform:translateY(-15%); 
+}
+.exp {
+    color: ffffff;
+    font-size: 18px;
+    text-align: center;
+
+}
+#cam {
+    transform: translateY(-5%);
+}
+
+.col-lg-8.offset-lg-2 {
+    text-align: center; 
+}
