@@ -6,8 +6,6 @@ body {
 .horizonal {
     display: flex;
     justify-content: center;
-    border: 1px;
-    margin: 1px;
 }
 
 .cognition {
@@ -38,19 +36,21 @@ body {
     text-shadow: 2px 2px 1px #e4baba;
 }
 .main_button {
-    background-color: #ffffffb2;
-    box-shadow: 6px 6px 1px #ffd504;
+    background-color: #ffffffcf;
+    box-shadow: 6px 6px 1px #ffc800;
     margin-top: 20px;
-    width: 250px;
-    height: 47px;
+    width: 280px;
+    height: 45px;
+    padding:20px;
     border-radius: 15px;
     text-align: center;
-    font-size:30px;
-    color: #607e19;
+    font-size:38px;
+    color: #516c14;
 }
 .main_button_flower{
-    width: 80px;
-    height: 80px;
+    margin-top: 15px;
+    width: 100px;
+    height: 100px;
 }
 .button:hover {
     box-shadow: 0px 0px 0px #743F21;
@@ -180,7 +180,7 @@ body {
     font-size: 20px;
 }
 #empty {
-    height: 170px;
+    height: 105px;
 }
 #main_text {
     margin-top: 10px;
