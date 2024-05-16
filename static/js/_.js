@@ -11,7 +11,7 @@ canvas.height = window.innerHeight - 100;
 // backgroundImg.src = "static/img/background.png";
 
 var clapImg = new Image();
-clapImg.src = "static/img/clap.png";
+clapImg.src = "static/img/clap_.png";
 
 //박스
 var dino = {
@@ -29,7 +29,7 @@ var dino = {
   class Cactus {
     constructor() {
       this.x = 2000;
-      this.y = 250;
+      this.y = 170;
       this.width = 70;
       this.height = 300;
       this.speed = 3;
