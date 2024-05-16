@@ -21,7 +21,7 @@ let ctx = canvas.getContext('2d');
 let square = {
 	x: 280,
   	width: 60,
-  	height: 60,
+  	height: 700,
 }
 
 // let boxImage = new Image();
