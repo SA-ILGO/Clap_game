@@ -12,7 +12,7 @@ function cal_level(){
     }
     else {
         level = level;
-    }
+    }   
 }
 
 //print clap
@@ -25,14 +25,13 @@ var clapAnswer = [];
 
 function assign_clap_img() {
     cal_level();
-    level += level-1;
+    let count_level = 2*level-1;
     let count = 0;
 
     function repeat_assign() {
 
         var odd = count % 2;
-        console.log(level);
-        if (count < level && odd == 0) {
+        if (count < count_level && odd == 0) {
             const randNum = Math.floor(Math.random() * 4) + 1;
             clapAnswer.push(clapNameList_kor[randNum]);
             randClap.src = clapImgList[randNum];
@@ -40,7 +39,7 @@ function assign_clap_img() {
 
             setTimeout(repeat_assign, 1500); 
             
-        } else if(count < level && odd == 1){
+        } else if(count < count_level && odd == 1){
             randClap.src = clapImgList[5];
             randClapName.textContent = clapNameList_kor[5];
             setTimeout(repeat_assign, 500); 
@@ -60,14 +59,14 @@ function assign_clap_img() {
 // game start
 const modal = document.querySelector('.modal');
 document.addEventListener("DOMContentLoaded", ()=>{
+    round += 1;
+    modalText.textContent = round + " 단 계";
     modal.style.display="flex";
 });
 const btnCloseModal=document.getElementById('modal_btn');
 const modalText=document.getElementById('modal_text');
 btnCloseModal.addEventListener("click", ()=>{
-    round++;
     round_text.textContent = round;
-    modalText.textContent = round+1 + " 단 계";
     modal.style.display="none";
     clapAnswer = [];
     correct = 0;
@@ -76,9 +75,6 @@ btnCloseModal.addEventListener("click", ()=>{
     assign_clap_img();
 });
 
-const result = document.getElementById("result_text");
-round_res = round + 1;
-result.textContent = "결과:" + round_res + "단계";
 
 const filePath = 'static/js/clap_data.txt';
 // clap_data 
@@ -129,7 +125,6 @@ function eng_to_kor(clap){
     try{
         for(let i = 0; i < 5; i++){
             if(clapNameList[i] == clap.trim()){
-                console.log(clapNameList_kor[i]);
                 return clapNameList_kor[i];
             }
         }
@@ -141,21 +136,26 @@ function eng_to_kor(clap){
 //press correct button
 var correct = 0;
 const answer = document.getElementById('answer');
+const result = document.getElementById("result_text");
 const result_modal = document.querySelector('.result_modal');
 answer.addEventListener("click", ()=>{
     for(let i = 0; i < level; i++){
         var compare = document.getElementById(cognitionList[i]).textContent;
-        console.log(clapAnswer[i] + " " +compare);
         if (clapAnswer[i] === compare) {
-            console.log("Correct!!");
             correct = 1;
         }
         else {
             correct = 0;
         }
     }
-    if(correct == 1) modal.style.display='flex';
+    if(correct == 1) {
+        round += 1;
+        modalText.textContent = round + " 단 계";
+        modal.style.display='flex';
+    }
     else {
+        round_res = round ;
+        result.textContent = "결과:" + round_res + "단계";
         result_modal.style.display="flex";
     }
 })

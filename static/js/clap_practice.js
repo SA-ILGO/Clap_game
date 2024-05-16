@@ -16,36 +16,35 @@ function watch_dataFile() {
             .then(data => {
                 var lines = data.split('\n');
                 var clap = lines[lines.length - 2];
-                console.log(clap);
 
-                if(clap.trim() == "egg clap"){
-                    console.log("egg");
-                    egg.style.borderColor = "rgb(255, 0, 0)";
-                    fist.style.borderColor = "rgb(255, 255, 255)";
-                    edge.style.borderColor = "rgb(255, 255, 255)";
-                    wrist.style.borderColor = "rgb(255, 255, 255)";
-                } else if(clap.trim() == "fist clap"){
-                    console.log("fist");
-                    egg.style.borderColor = "rgb(255, 255, 255)";
-                    fist.style.borderColor = "rgb(255, 0, 0)";
-                    edge.style.borderColor = "rgb(255, 255, 255)";
-                    wrist.style.borderColor = "rgb(255, 255, 255)";
-
-                } else if(clap.trim() == "edge clap"){
-                    console.log("edge");
-                    egg.style.borderColor = "rgb(255, 255, 255)";
-                    fist.style.borderColor = "rgb(255, 255, 255)";
-                    edge.style.borderColor = "rgb(255, 0, 0)";
-                    wrist.style.borderColor = "rgb(255, 255, 255)";
-
-                } else if(clap.trim() == "wrist clap") {
-                    console.log("wrist");
-                    egg.style.borderColor = "rgb(255, 255, 255)";
-                    fist.style.borderColor = "rgb(255, 255, 255)";
-                    edge.style.borderColor = "rgb(255, 255, 255)";
-                    wrist.style.borderColor = "rgb(255, 0, 0)";
-
-                } 
+                try{
+                    if(clap.trim() == "egg clap"){
+                        egg.style.borderColor = "rgb(255, 0, 0)";
+                        fist.style.borderColor = "rgb(255, 255, 255)";
+                        edge.style.borderColor = "rgb(255, 255, 255)";
+                        wrist.style.borderColor = "rgb(255, 255, 255)";
+                    } else if(clap.trim() == "fist clap"){
+                        egg.style.borderColor = "rgb(255, 255, 255)";
+                        fist.style.borderColor = "rgb(255, 0, 0)";
+                        edge.style.borderColor = "rgb(255, 255, 255)";
+                        wrist.style.borderColor = "rgb(255, 255, 255)";
+    
+                    } else if(clap.trim() == "edge clap"){
+                        egg.style.borderColor = "rgb(255, 255, 255)";
+                        fist.style.borderColor = "rgb(255, 255, 255)";
+                        edge.style.borderColor = "rgb(255, 0, 0)";
+                        wrist.style.borderColor = "rgb(255, 255, 255)";
+    
+                    } else if(clap.trim() == "wrist clap") {
+                        egg.style.borderColor = "rgb(255, 255, 255)";
+                        fist.style.borderColor = "rgb(255, 255, 255)";
+                        edge.style.borderColor = "rgb(255, 255, 255)";
+                        wrist.style.borderColor = "rgb(255, 0, 0)";
+    
+                    } 
+                }catch(error){
+                        
+                }
             })
             .catch(error => console.error('file load error', error));
     }
