@@ -36,7 +36,7 @@ body {
     margin:20px;
 }
 #home:hover {
-    background-color: #ffffff;
+    background-color: #ffb07b;
 }
 #container {
     z-index: 0;
@@ -50,7 +50,7 @@ body {
     top: 140px;
     left: 10px;
     z-index: -1; /* canvas를 이미지 위로 올림 */
-    background-color: #ddbae4;
+    background-color: #AD7B98;
     width: 1800px;
     height: 200px;
 }
@@ -179,6 +179,9 @@ body {
     color: #FFA3A3;
     margin-left: 160px;
     margin-right: 160px;
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 #logo {
     width: 100px;

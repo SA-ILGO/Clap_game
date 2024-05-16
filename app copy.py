@@ -93,13 +93,13 @@ def GenerateFrames():
 
                 # Get angle using arcos of dot product
                 angle = np.arccos(np.einsum('nt,nt->n',
-                    v[[0,1,2,4,5,6,8,9,10,12,13,14,16,17,18],:], 
+                    v[[0,18,2,4,5,6,8,9,10,12,13,14,16,17,18],:], 
                     v[[1,2,3,5,6,7,9,10,11,13,14,15,17,18,19],:])) # [15,]
 
                 angle = np.degrees(angle) # Convert radian to degree
 
                 wrist_x = res.landmark[0].x * img.shape[1]  
-                if wrist_x < img.shape[1] / 2:
+                if wrist_x < img.shape[1]:
                     left_hand_position = wrist_x
                 else:
                     right_hand_position = wrist_x

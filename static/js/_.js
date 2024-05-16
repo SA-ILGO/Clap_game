@@ -41,9 +41,18 @@ var dino = {
 
     }
   }
+
+/* 여기까진 잘 돼요... */
+
+
 var timer = 0;
 var cactuses = [];
 
+
+const filePath = 'static/js/clap_data_rhythm.txt';
+var flag = 0;
+
+//cactus를 계속 생기도록 한다.
 function executePerFrame() {
   requestAnimationFrame(executePerFrame);
   
@@ -59,14 +68,37 @@ function executePerFrame() {
     // }
   }
 
-  dino.draw();
+//장애물과 dino가 부딪히는지 확인 & txt에 clap!과, ready...를 읽어옴
+function isBumped(dino, cactus) {
+  var xDif = cactus.x - (dino.x + dino.width);
+  if (xDif < 0) {
+    fetch(filePath)
+    .then(response => response.text())
+    .then(data => {
+      var lines = data.split('\n');
+      try{
+        var clap = lines[lines.length - 2].trim();
+      }catch(error){}
 
-  // if (timer % 360 === 0) {
-  //   var cactus = new Cactus();
-  //   cactuses.push(cactus);
-  // }
+      if(flag == 0 && clap == "Clap!!"){
+          score += 10;
+          flag = 1;
+          updateScore(score); // score를 업데이트하는 함수 호출
+      }
+      else if(flag == 1 && clap == "Ready..."){
+        flag = 0;
+      }
+        
+    })
+    .catch(error => console.error('file load error', error));
+  }
+};
 
-  cactuses.forEach((a, i, o) => {
+//공룡 그림
+dino.draw();
+
+//
+cactuses.forEach((a, i, o) => {
     if (a.x < 0) {
       o.splice(i, 1);
       // console.log("delete");
@@ -74,46 +106,23 @@ function executePerFrame() {
     a.x -= 2;
     a.draw();
     isBumped(dino, a);
+    setInterval(isBumped(dino, a), 500); // 0.1
 
   });
 }
+
+// cactuses.forEach((a)=>{
+//   a.x -=2;
+//   a.draw();
+//   isBumped(dino, a);
+// })
 executePerFrame();
-
-const filePath = 'static/js/clap_data_rhythm.txt';
-var flag = 0;
-
-function isBumped(dino, cactus) {
-    console.log("bumped");
-
-    var xDif = cactus.x - (dino.x + dino.width);
-    if (xDif < 0) {
-      fetch(filePath)
-            .then(response => response.text())
-            .then(data => {
-                var lines = data.split('\n');
-                var clap = lines[lines.length - 1];
-
-                // console.log(clap);
-
-                if(flag == 0 && clap == "Clap!!"){
-                    score += 10;
-                    flag = 1;
-                    updateScore(score); // score를 업데이트하는 함수 호출
-                    console.log(score);
-
-                }
-                else if(flag == 1 && clap == "Ready..."){
-                    flag = 0;
-                    console.log(clap);
-                }
-                
-            })
-            .catch(error => console.error('file load error', error));
-    }
-  }
+// isBumped(dino, cactuses);
+// console.log("ddddddd")
 
 function updateScore(score) {
     // HTML 요소에서 점수를 업데이트
     var scoreText = document.querySelector('.score-text');
     scoreText.textContent = "Score : " + score;
 }
+
