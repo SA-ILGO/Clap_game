@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 file_path1 = "Clap_game\static\js\clap_data.txt"
 file_path2 = "Clap_game\static\js\clap_data_now.txt"
+file_path3 = "Clap_game\static\js\clap_data_rhythm.txt"
 
 def cognition_txt(clap):
     with open(file_path1, "a") as file:
@@ -20,10 +21,16 @@ def cognition_now_txt(clap):
     with open(file_path2, "a") as file:
         file.write(clap + '\n')
 
+def clap_rhythm(action):
+    with open(file_path3, "a") as file:
+        file.write(action + '\n')
+
 def init_txt():
     with open(file_path1, "w") as file:
         file.write('')
-    with open(file_path1, "w") as file:
+    with open(file_path2, "w") as file:
+        file.write('')
+    with open(file_path3, "w") as file:
         file.write('')
         
 
@@ -158,6 +165,10 @@ def GenerateFrames():
     cv2.destroyAllWindows()
 
 def GenerateFrames2():
+
+    init_txt()
+    action = "Ready..."
+
     flag2 = 0
     left_hand_position = 0
     right_hand_position = 400
@@ -198,12 +209,15 @@ def GenerateFrames2():
                 if flag2 == 1:
                     if right_hand_position - left_hand_position < 150:
                         action = "Clap!!"
+                        clap_rhythm(action)
                         flag2 = 0 
    
                 elif flag2 == 0:
                     if right_hand_position - left_hand_position > 150:
                         action = "Ready..."
+                        clap_rhythm(action)
                         flag2 = 1
+
                             
                 cv2.putText(img, f'{action.upper()}', 
                             org=(int(win_w/2 - len(action.upper())*6), int(win_h/10)),  
@@ -228,6 +242,10 @@ def clap_rythem():
 def clap_practice():
       return render_template('clap_practice.html') 
 
+@app.route('/_', methods=["GET", "POST"])
+def _():
+      return render_template('_.html') 
+
 @app.route('/stream')
 def Stream():
       return Response(GenerateFrames(), mimetype='multipart/x-mixed-replace; boundary=frame')
@@ -242,4 +260,4 @@ def main():
     return render_template('main.html')
 
 if __name__ == "__main__":
-      app.run()
+      app.run(debug=True)

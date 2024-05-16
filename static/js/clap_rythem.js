@@ -19,7 +19,7 @@ let ctx = canvas.getContext('2d');
 
 
 let square = {
-	  x: 280,
+	x: 280,
   	width: 60,
   	height: 60,
 }
@@ -30,7 +30,7 @@ let boxImage = document.getElementById('up');
 boxImage.src = 'static/img/clap.png';
 class Box {
 	constructor() {
-    	  this.width = 40;
+    	this.width = 40;
       	this.height = 40;
       	this.x = canvas.width - this.width;
       	this.y = 156;
@@ -51,7 +51,7 @@ function frameRun() {
     }
   	manyBoxes.forEach((a, i, o) => {
       	a.x--;
-    });s
+    });
 }
 frameRun();
 
