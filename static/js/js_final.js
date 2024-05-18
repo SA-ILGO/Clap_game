@@ -45,30 +45,19 @@ var cactuses = [];
 const filePath = 'static/js/clap_data_rhythm.txt';
 var flag = 0;
 
-
-// 프레임마다 실행되는 함수
+//cactus를 계속 생기도록 한다.
 function executePerFrame() {
   requestAnimationFrame(executePerFrame);
   
-  timer += 2;
+  timer+=2;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
-  // 랜덤한 간격으로 선인장 생성
-  if (timer % (Math.floor(Math.random() * 180) + 120) === 0) {
-    createCactus();
-  }
-}
-
-// 선인장 생성 함수
-function createCactus() {
-  if (cactuses.length < 15) {
+  if (timer % (Math.floor(Math.random() * 180) + 120) === 0) { // 등장 간격을 랜덤하게 설정
     var cactus = new Cactus();
     cactuses.push(cactus);
+    }
   }
-}
 
-
- 
 //장애물과 dino가 부딪히는지 확인 & txt에 clap!과, ready...를 읽어옴
 function isBumped(dino, cactus) {
   var xDif = cactus.x - (dino.x + dino.width);
