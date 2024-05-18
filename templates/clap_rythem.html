@@ -7,10 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+
   </head>
   <body>
 
-    <script src="{{ url_for('static', filename='js/.js') }}"></script>
 
     <div class="horizonal">
       <img id="logo" src="static\img\Gieoknieun_logo.gif">
@@ -23,16 +23,18 @@
     <!--<div id="container">
       <img id="background" src="static/img/background.png" > 
     </div> -->
+  
 
-
-    <br><br> <br><br> <br><br> <br><br><br><br>
+    <br><br> <br><br> <br><br> <br><br><br><br> <br><br>
       <div class = "horizonal">
           <div class="video-container">
             <div class="col-lg-8  offset-lg-2">
-              <img src="{{ url_for('Stream2') }}" width="60%">
+              <img src="{{ url_for('Stream2') }}" width="90%">
             </div>
         </div>
       </div>
-  
-  </body>
+
+      <script src="{{ url_for('static', filename='js/_.js') }}"></script>
+
+    </body>
 </html>
