@@ -234,6 +234,10 @@ def GenerateFrames2():
 def clap_memory():
       return render_template('clap_memory.html')  
 
+@app.route('/rhythm_practice', methods=["GET", "POST"])
+def rhythm_practice():
+      return render_template('rhythm_practice.html')  
+
 @app.route('/clap_rythem', methods=["GET", "POST"])
 def clap_rythem():
       return render_template('clap_rythem.html') 

@@ -10,7 +10,14 @@
 
   </head>
   <body>
-
+    <div class="modal">
+      <div class="modal_body">
+          <div id="modal_text"></div>
+          <div class="horizonal">
+              <div class="modalButton" id="modal_btn">시작</div>
+          </div>
+      </div>
+  </div>
 
     <div class="horizonal">
       <img id="logo" src="static\img\Gieoknieun_logo.gif">
@@ -33,8 +40,19 @@
             </div>
         </div>
       </div>
+    
+      <!-- 게임 종료 모달 -->
+      <div class="end-game-modal" id="endGameModal">
+        <div class="modal_body">
+            <div>게임이 종료되었습니다.</div>
+            <button id="restartGameBtn" onclick="restartGame()">게임 재시작</button>
+            <button id="goToMainPageBtn" onclick="goToMainPage()">홈으로 돌아가기</button>
+        </div>
+    </div>
 
-      <script src="{{ url_for('static', filename='js/_.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/rhythm.js') }}"></script>
+
+      
 
     </body>
 </html>

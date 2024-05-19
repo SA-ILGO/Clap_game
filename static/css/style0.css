@@ -1,0 +1,117 @@
+body {
+    background-color: #E6E6E8;
+    font-family: 'Bagel Fat One', cursive; 
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto; /* 이미지를 가운데로 정렬 */
+}
+
+.slides {
+    display: flex;
+}
+
+.slides img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    bottom: 0; /* 화면 하단에 위치하도록 설정합니다. */
+    left: 50%;
+    transform: translateX(-50%); /* 가로 방향으로만 이동시킵니다. */
+}
+
+.prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    cursor: pointer;
+    background: url('left.png'); /* 버튼 이미지 경로로 변경하세요 */
+    background-size: cover;
+    border-radius: 50%; /* 동그라미 모양으로 만들기 */
+    border: none;
+    outline: none;
+    width: 100px; /* 이미지 크기에 따라 조절하세요 */
+    height: 100px; /* 이미지 크기에 따라 조절하세요 */
+}
+
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    cursor: pointer;
+    background: url('right.png'); /* 버튼 이미지 경로로 변경하세요 */
+    background-size: cover;
+    border-radius: 50%; /* 동그라미 모양으로 만들기 */
+    border: none;
+    outline: none;
+    width: 100px; /* 이미지 크기에 따라 조절하세요 */
+    height: 100px; /* 이미지 크기에 따라 조절하세요 */
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover {
+    background-color: #ffffff;
+}
+
+.next:hover {
+    background-color: #ffffff;
+}
+
+
+.horizonal {
+    display: flex;
+    justify-content: center;
+    border: 1px;
+    margin: 1px;
+}
+
+#main_logo {
+    width: 400px;
+    height: 400px;
+    margin-top:70px;
+}
+
+#title {
+    width: 600px;
+    height: 120px;
+}
+#home {
+    padding: 10px;
+    border-radius: 40px;
+    width: 70px;
+    height: 70px;
+    margin:20px;
+}
+#name {
+    font-size: 60px;
+    text-shadow: 3px 3px 1px #743F21;
+    color: #FFA3A3;
+    margin-left: 160px;
+    margin-right: 160px;
+    font-style: normal;
+}
+#logo {
+    width: 100px;
+    height: 100px;
+    margin:10px;
+}
+#main_logo {
+    width: 400px;
+    height: 400px;
+    margin-top:70px;
+}
+#home:hover {
+    background-color: #ffffff;
+}
