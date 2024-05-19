@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/style0.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="horizonal">
+        <img id="logo" src="static/img/Gieoknieun_logo.gif">
+        <div id="name">박수리듬게임 설명</div>
+        <img id="home" onclick="location.href='/'"  src="static/img/home.png">
+    </div>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="static/img/1.png" alt="Image 1">
+                <button id="prev1" class="prev" onclick="plusSlides(-1)"></button>
+                <button id="next1" class="next" onclick="plusSlides(1)"></button>
+            </div>
+            <div class="slide">
+                <img src="static/img/2.png" alt="Image 2">
+                <button id="prev2" class="prev" onclick="plusSlides(-1)"></button>
+                <button id="next2" class="next" onclick="plusSlides(1)"></button>
+            </div>
+            <div class="slide">
+                <img src="static/img/3.png" alt="Image 3">
+                <button id="prev3" class="prev" onclick="plusSlides(-1)"></button>
+                <button id="next3" class="next" onclick="plusSlides(1)"></button>
+            </div>
+            <div class="slide">
+                <img src="static/img/4.png" alt="Image 4">
+                <button id="prev4" class="prev" onclick="plusSlides(-1)"></button>
+                <button id="next4" class="next" onclick="plusSlides(1)"></button>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("slide");
+            if (slideIndex >= slides.length) {slideIndex = 0}
+            if (slideIndex < 0) {slideIndex = slides.length - 1}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+    </script>
+</body>
+</html>
