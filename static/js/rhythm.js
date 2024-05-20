@@ -72,34 +72,34 @@ function isBumped(dino, cactus) {
     }
 }
 
-const answerButton = document.getElementById('answerButton'); // 수정된 부분
+// const answerButton = document.getElementById('answerButton'); // 수정된 부분
 
-const successButton = document.getElementById('successButton');
-const failureButton = document.getElementById('failureButton');
+// const successButton = document.getElementById('successButton');
+// const failureButton = document.getElementById('failureButton');
 
-const result_modal = document.querySelector('.result_modal');
-const result = document.getElementById('result_text');
+// const result_modal = document.querySelector('.result_modal');
+// const result = document.getElementById('result_text');
 
-function finish() {
-    console.log("finissssssh")
-    answerButton.addEventListener("click", () => { // 수정된 부분
-        if (score > 100 && roundClapCount > 10) {
-            // 성공한 경우
-            round += 1;
-            modalText.textContent = round + " 단 계";
-            modal.style.display = 'flex';
-            successButton.style.display = 'block'; // 성공 버튼 표시
-            failureButton.style.display = 'none'; // 실패 버튼 숨기기
-        } else if (score < 100 && roundClapCount > 10) {
-            // 실패한 경우
-            round_result = round;
-            result.textContent = "결과:" + round_res + "단계";
-            result_modal.style.display = "flex";
-            successButton.style.display = 'none'; // 성공 버튼 숨기기
-            failureButton.style.display = 'block'; // 실패 버튼 표시
-        }
-    });
-}
+// function finish() {
+//     console.log("finissssssh")
+//     answerButton.addEventListener("click", () => { // 수정된 부분
+//         if (score > 100 && roundClapCount > 10) {
+//             // 성공한 경우
+//             round += 1;
+//             modalText.textContent = round + " 단 계";
+//             modal.style.display = 'flex';
+//             successButton.style.display = 'block'; // 성공 버튼 표시
+//             failureButton.style.display = 'none'; // 실패 버튼 숨기기
+//         } else if (score < 100 && roundClapCount > 10) {
+//             // 실패한 경우
+//             round_result = round;
+//             result.textContent = "결과:" + round_res + "단계";
+//             result_modal.style.display = "flex";
+//             successButton.style.display = 'none'; // 성공 버튼 숨기기
+//             failureButton.style.display = 'block'; // 실패 버튼 표시
+//         }
+//     });
+// }
 
 //계속 장애물 생성
 function executePerFrame() {
@@ -138,8 +138,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
     round += 1;
     modalText.textContent = round + " 단 계";
     modal.style.display="flex";
-    finish();
+    // finish();
 });
+const btnCloseModal=document.getElementById('modal_btn');
 const modal_btn = document.getElementById('modal_btn');
 const modalText=document.getElementById('modal_text');
 btnCloseModal.addEventListener("click", ()=>{
