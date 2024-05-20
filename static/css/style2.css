@@ -1,6 +1,7 @@
 body {
     background-color: #E6E6E8;
     font-family: 'Bagel Fat One', cursive; 
+    position: relative;
 }
 .horizonal {
     display: flex;
@@ -236,13 +237,16 @@ body {
     box-shadow: 0px 0px 0px #743F21;
 }
 .modal {
+    transform: translate(-50%, -50%); /* 수평 및 수직으로 중앙 정렬 */
     position: absolute;
-    display: none;
-    justify-content: center;
+    display: block;
+    top: 50%; /* 화면의 상단에서 절반 위치로 이동 */
+    left: 50%; /* 화면의 왼쪽에서 절반 위치로 이동 */
     width:100%;
     height:100%;
     background-color: rgba(255, 255, 255, 0.475);
     z-index: 9999; 
+    text-align: center;
 }
 
 .modalButton {
@@ -310,7 +314,7 @@ body {
 
 .end-game-modal button {
     padding: 10px 20px;
-    background-color: #dc3545; /* 종료 버튼 색상 */
+    background-color: #e4baba; /* 종료 버튼 색상 */
     color: white;
     border: none;
     border-radius: 5px;
@@ -318,7 +322,7 @@ body {
 }
 
 .end-game-modal button:hover {
-    background-color: #bd2130; /* 마우스 호버 시 색상 변경 */
+    background-color: #743F21; /* 마우스 호버 시 색상 변경 */
 }
 
 
@@ -327,7 +331,7 @@ body {
     display: block;
     margin: 10px auto;
     padding: 10px 20px;
-    background-color: #ff0000;
+    background-color: D;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -337,5 +341,5 @@ body {
 
 #restartGameBtn:hover,
 #goToMainPageBtn:hover {
-    background-color: #cc0000;
+    background-color: #743F21;
 }
