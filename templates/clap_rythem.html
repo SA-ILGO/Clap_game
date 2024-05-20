@@ -17,20 +17,30 @@
               <div class="modalButton" id="modal_btn">시작</div>
           </div>
       </div>
+    </div>
+    <div class="result_modal">
+      <div class="result_modal_body">
+          <h2>게임 실패!</h2>
+          <h2 id="result_text"></h2>
+          <button id="nextButton" style="display: none;" onclick="location.href='/';">다음 단계</button>
+          <button id="returnButton" style="display: none;" onclick="location.href='/';">돌아가기</button>
+      </div>
   </div>
+  
+
 
     <div class="horizonal">
       <img id="logo" src="static\img\Gieoknieun_logo.gif">
       <div id="name">박수 리듬 게임</div>
       <img id="home" onclick="location.href='/'"  src="static/img/home.png">
     </div>
-    
+    <br>
+
+<BR><bR>
     <div class="score-text"><p id="score">점수<br>0</p></div>
     <canvas id="canvas"></canvas>
-    <!--<div id="container">
-      <img id="background" src="static/img/background.png" > 
-    </div> -->
   
+
 
     <br><br> <br><br> <br><br> <br><br><br><br> <br><br>
       <div class = "horizonal">
@@ -40,22 +50,7 @@
             </div>
         </div>
       </div>
-    
-      <!-- 게임 종료 모달 -->
-      <div class="end-game-modal">
-        <div class="modal-content">
-            <h2>게임 종료!</h2>
-            <button id="end-game-btn" onclick="location.href='/'">홈으로 돌아가기</button>
-            <button id="end-restart-game-btn" onclick="window.location.reload()">게임 재시작</button>
-        </div>
-    </div>
 
-    <div class="next-round-modal" id="nextRoundModal">
-      <div class="modal_body">
-          <div>성공!</div>
-          <button id="startNextGameBtn" onclick="startNextRound()">다음 단계 시작</button>
-      </div>
-  </div>
 
     <script src="{{ url_for('static', filename='js/rhythm.js') }}"></script>
 
