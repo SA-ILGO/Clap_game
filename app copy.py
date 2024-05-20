@@ -47,8 +47,8 @@ def GenerateFrames():
     actions = ['egg clap', 'wrist clap', 'fist clap', 'edge clap']
     seq_length = 20
 
-    model = load_model("Clap_game\models\model.keras")
-    #model = load_model("Clap_game\models\model2.keras")
+    # model = load_model("Clap_game\models\model.keras")
+    model = load_model("Clap_game\models\model2.keras")
 
     # MediaPipe hands model
     mp_hands = mp.solutions.hands
