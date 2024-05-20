@@ -1,3 +1,8 @@
+//before game start
+var round = 0;
+var roundClapCount = 0; // 라운드 당 그릴 clap_.png 이미지 수 카운트
+
+//game start
 var score = 0;
 
 var canvas = document.getElementById("canvas");
@@ -40,14 +45,12 @@ class Cactus {
 
 var timer = 0;
 var cactuses = [];
-
 const filePath = 'static/js/clap_data_rhythm.txt';
 var flag = 0;
 
 //부딪히는지 확인하는 부분
 function isBumped(dino, cactus) {
     var xDif = cactus.x - (dino.x + dino.width);
-
     if (xDif < 0) {
     fetch(filePath)
     .then(response => response.text())
@@ -56,25 +59,47 @@ function isBumped(dino, cactus) {
         try{
             var clap = lines[lines.length - 2].trim();
         }catch(error){}
-
         if(flag == 0 && clap == "Clap!!"){
             score += 10;
             flag = 1;
             updateScore(score); // score를 업데이트하는 함수 호출
         }
-
         else if(flag == 1 && clap == "Ready..."){
         flag = 0;
         }
-        
     })
     .catch(error => console.error('file load error', error));
     }
 }
 
+const answerButton = document.getElementById('answerButton'); // 수정된 부분
 
-var roundClapCount = 0; // 라운드 당 그릴 clap_.png 이미지 수 카운트
-round = 0;
+const successButton = document.getElementById('successButton');
+const failureButton = document.getElementById('failureButton');
+
+const result_modal = document.querySelector('.result_modal');
+const result = document.getElementById('result_text');
+
+function finish() {
+    console.log("finissssssh")
+    answerButton.addEventListener("click", () => { // 수정된 부분
+        if (score > 100 && roundClapCount > 10) {
+            // 성공한 경우
+            round += 1;
+            modalText.textContent = round + " 단 계";
+            modal.style.display = 'flex';
+            successButton.style.display = 'block'; // 성공 버튼 표시
+            failureButton.style.display = 'none'; // 실패 버튼 숨기기
+        } else if (score < 100 && roundClapCount > 10) {
+            // 실패한 경우
+            round_result = round;
+            result.textContent = "결과:" + round_res + "단계";
+            result_modal.style.display = "flex";
+            successButton.style.display = 'none'; // 성공 버튼 숨기기
+            failureButton.style.display = 'block'; // 실패 버튼 표시
+        }
+    });
+}
 
 //계속 장애물 생성
 function executePerFrame() {
@@ -85,18 +110,14 @@ function executePerFrame() {
 
     // 캐릭터 그리기
     dino.draw();
-
-    // 장애물 생성 및 그리기
-    if (timer % (Math.floor(Math.random() * 180) + 120) === 0) { // 등장 간격을 랜덤하게 설정
-         // 라운드 당 clap_.png 이미지 수가 15개가 될 때까지 그리기
-                    // 라운드 당 clap_.png 이미지 수가 15개가 될 때까지 그리기
-                    if (roundClapCount < 11) {
-                        var cactus = new Cactus();
-                        cactuses.push(cactus);
-                        roundClapCount++;
-                        endGame();
-                    }
+    if (roundClapCount < 11) {
+        if (timer % (Math.floor(Math.random() * 180) + 120) === 0) {
+            var cactus = new Cactus();
+            cactuses.push(cactus);
+            roundClapCount++;
+            console.log(roundClapCount);
         }
+    }
 
     // 장애물 그리고 충돌 여부 확인
     cactuses.forEach((a, i, o) => {
@@ -111,30 +132,22 @@ function executePerFrame() {
 
 }
 
-executePerFrame();
-
-
-// 게임 종료 함수
-function endGame() {
-    if (score < 100 && roundClapCount > 10) {
-        const endGameModal = document.querySelector('.end-game-modal');
-        endGameModal.style.display = "flex";
-        cancelAnimationFrame(animationFrameId);
-
-    }
-}
-
-// 종료 버튼 클릭 시
-const endGameBtn = document.getElementById('end-game-btn');
-endGameBtn.addEventListener("click", () => {
-    const endGameModal = document.querySelector('.end-game-modal');
-    endGameModal.style.display = "none"; // 모달을 숨기는 코드
+//game start
+const modal = document.querySelector('.modal');
+document.addEventListener("DOMContentLoaded", ()=>{
+    round += 1;
+    modalText.textContent = round + " 단 계";
+    modal.style.display="flex";
+    finish();
 });
-const restartGameBtn = document.getElementById('end-restart-game-btn');
-restartGameBtn.addEventListener("click", () => {
-    // 게임을 재시작하는 코드 추가
-    const endGameModal = document.querySelector('.end-game-modal');
-    endGameModal.style.display = "none"; // 모달을 숨기는 코드
+const modal_btn = document.getElementById('modal_btn');
+const modalText=document.getElementById('modal_text');
+btnCloseModal.addEventListener("click", ()=>{
+    // round_text.textContent = round;
+    modal.style.display="none";
+    // reset.click();
+    console.log("게임 시작");
+    executePerFrame(); // 모달이 닫힐 때마다 게임이 시작되도록 함
 });
 
 
