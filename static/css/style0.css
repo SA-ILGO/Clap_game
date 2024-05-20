@@ -4,7 +4,7 @@ body {
 }
 
 .slider {
-    width: 100%;
+    width: 50%;
     overflow: hidden;
     margin: 0 auto; /* 이미지를 가운데로 정렬 */
 }
@@ -14,7 +14,7 @@ body {
 }
 
 .slides img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     display: block;
     position: absolute;

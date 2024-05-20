@@ -246,6 +246,10 @@ def clap_rythem():
 def clap_practice():
       return render_template('clap_practice.html') 
 
+@app.route('/memory_practice', methods=["GET", "POST"])
+def clap_memory():
+      return render_template('memory_practice.html') 
+
 @app.route('/_', methods=["GET", "POST"])
 def _():
       return render_template('_.html') 
