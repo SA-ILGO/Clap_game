@@ -7,9 +7,9 @@ from keras.models import load_model
 
 
 app = Flask(__name__)
-file_path1 = "Clap_game\static\js\clap_data_now.txt"
-file_path2 = "Clap_game\static\js\clap_practice.txt"
-file_path3 = "Clap_game\static\js\clap_rythem.txt"
+file_path1 = "static/js/clap_data_now.txt"
+file_path2 = "static/js/clap_practice.txt"
+file_path3 = "static/js/clap_data_rhythm.txt"
 
 def cognition_txt(clap):
     with open(file_path1, "a") as file:

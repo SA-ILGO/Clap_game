@@ -109,14 +109,14 @@ function executePerFrame() {
 
     // 박수 아이콘 생성
     dino.draw();
-    if (roundClapCount < 11) {
+    // if (roundClapCount < 11) {
         if (timer % (Math.floor(Math.random() * 180) + 120) === 0) {
             var cactus = new Cactus();
             cactuses.push(cactus);
             roundClapCount++;
             console.log(roundClapCount);
         }
-    }
+    // }
 
     // 박수 아이콘 충돌 여부 확인
     cactuses.forEach((a, i, o) => {
@@ -135,7 +135,7 @@ function executePerFrame() {
 const modal = document.querySelector('.modal');
 document.addEventListener("DOMContentLoaded", ()=>{
     round += 1;
-    modalText.textContent = round + " 단 계";
+    modalText.textContent = round;
     modal.style.display="flex";
     // finish();
 });
