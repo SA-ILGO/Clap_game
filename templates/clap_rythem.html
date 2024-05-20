@@ -42,13 +42,20 @@
       </div>
     
       <!-- 게임 종료 모달 -->
-      <div class="end-game-modal" id="endGameModal">
-        <div class="modal_body">
-            <div>게임이 종료되었습니다.</div>
-            <button id="restartGameBtn" onclick="restartGame()">게임 재시작</button>
-            <button id="goToMainPageBtn" onclick="goToMainPage()">홈으로 돌아가기</button>
+      <div class="end-game-modal">
+        <div class="modal-content">
+            <h2>게임 종료!</h2>
+            <button id="end-game-btn" onclick="location.href='/'">홈으로 돌아가기</button>
+            <button id="end-restart-game-btn" onclick="window.location.reload()">게임 재시작</button>
         </div>
     </div>
+
+    <div class="next-round-modal" id="nextRoundModal">
+      <div class="modal_body">
+          <div>성공!</div>
+          <button id="startNextGameBtn" onclick="startNextRound()">다음 단계 시작</button>
+      </div>
+  </div>
 
     <script src="{{ url_for('static', filename='js/rhythm.js') }}"></script>
 

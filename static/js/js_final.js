@@ -45,8 +45,6 @@ const filePath = 'static/js/clap_data_rhythm.txt';
 var flag = 0;
 
 
-
-
 function isBumped(dino, cactus) {
     var xDif = cactus.x - (dino.x + dino.width);
 
@@ -101,11 +99,26 @@ function executePerFrame() {
   });
 
   // 점수가 100점을 넘지 않고 15번 생성했을 때만 게임 종료 버튼을 표시
-  if (score < 100 && cactuses.length >= 15) {
+  if (score < 100 && cactuses.length >= 10) {
       drawGameOverButton();
+  }
+
+  else if (score > 100 && cactuses.length >= 10) {
+      drawGameNextRoundButton();
   }
 }
 
+function drawGameNextRoundButton(){
+  ctx.fillStyle = "#e4baba";
+  ctx.fillRect(canvas.width - 150, 50, 100, 50);
+  ctx.fillStyle = "white";
+  ctx.font = "20px Arial";
+  ctx.fillText("다음 단계", canvas.width - 140, 85);
+
+  // 게임 종료 모달 표시
+  var endGameModal = document.getElementById("nextRoundModal");
+  endGameModal.style.display = "block";
+}
 
 function drawGameOverButton() {
   // 게임 종료 버튼 그리기
@@ -144,6 +157,12 @@ function goToMainPage() {
 }
 
 function restartGame() {
+  // 게임 재시작 처리
+  // 여기에 추가적인 재시작 처리를 할 수 있습니다.
+  location.reload(); // 페이지 새로고침을 통해 게임을 재시작합니다.
+}
+
+function startNextRound() {
   // 게임 재시작 처리
   // 여기에 추가적인 재시작 처리를 할 수 있습니다.
   location.reload(); // 페이지 새로고침을 통해 게임을 재시작합니다.
