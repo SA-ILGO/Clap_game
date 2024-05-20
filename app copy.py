@@ -2,15 +2,14 @@ from flask import Flask, render_template, Response
 import cv2
 import mediapipe as mp
 import numpy as np
-import tensorflow
 from tensorflow import keras
 from keras.models import load_model
 
 
 app = Flask(__name__)
-file_path1 = "static/js/clap_data.txt"
-file_path2 = "static/js/clap_data_now.txt"
-file_path3 = "static/js/clap_data_rhythm.txt"
+file_path1 = "Clap_game\static\js\clap_data_now.txt"
+file_path2 = "Clap_game\static\js\clap_practice.txt"
+file_path3 = "Clap_game\static\js\clap_rythem.txt"
 
 def cognition_txt(clap):
     with open(file_path1, "a") as file:
@@ -67,6 +66,9 @@ def GenerateFrames():
 
     flag = 0
     action = ""
+
+    right_hand_position = 400
+    left_hand_position = 0
 
     while cap.isOpened():
         ret, img = cap.read()
@@ -247,7 +249,7 @@ def clap_practice():
       return render_template('clap_practice.html') 
 
 @app.route('/memory_practice', methods=["GET", "POST"])
-def clap_memory():
+def memory_practice():
       return render_template('memory_practice.html') 
 
 @app.route('/_', methods=["GET", "POST"])

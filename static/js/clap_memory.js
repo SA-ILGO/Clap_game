@@ -91,7 +91,6 @@ const cognitionList = ["cognition1", "cognition2", "cognition3", "cognition4",
             "cognition5", "cognition6", "cognition7", "cognition8"];
 
 function watch_dataFile() {
-    // setInterval stop
     var intervalId;
     function load_dataFile() {
         fetch(filePath)
@@ -114,7 +113,7 @@ function watch_dataFile() {
             })
             .catch(error => console.error('file load error', error));
     }
-    intervalId = setInterval(load_dataFile, 500); // 0.5
+    intervalId = setInterval(load_dataFile, 500); 
 
     window.addEventListener('unload', () => {
         clearInterval(intervalId);
