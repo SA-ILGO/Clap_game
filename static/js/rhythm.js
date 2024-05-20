@@ -101,14 +101,13 @@ function isBumped(dino, cactus) {
 //     });
 // }
 
-//계속 장애물 생성
 function executePerFrame() {
     requestAnimationFrame(executePerFrame);
 
     timer += 2;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // 캐릭터 그리기
+    // 박수 아이콘 생성
     dino.draw();
     if (roundClapCount < 11) {
         if (timer % (Math.floor(Math.random() * 180) + 120) === 0) {
@@ -119,7 +118,7 @@ function executePerFrame() {
         }
     }
 
-    // 장애물 그리고 충돌 여부 확인
+    // 박수 아이콘 충돌 여부 확인
     cactuses.forEach((a, i, o) => {
         if (a.x < 0) {
             o.splice(i, 1);

@@ -1,2 +1,2 @@
 
-    with open(file_path3, "a") as file:
+                        cognition_txt(action)

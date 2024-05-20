@@ -12,7 +12,7 @@ os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 actions = ['egg clap', 'wrist clap', 'fist clap', 'edge clap']
 seq_length = 20
 
-model = load_model("Clap\models\model.keras")
+model = load_model("Clap_game\models\model.keras")
 
 # MediaPipe hands model
 mp_hands = mp.solutions.hands
