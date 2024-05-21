@@ -5,7 +5,7 @@ const wrist = document.getElementById("wrist");
 
 const clapL = [egg, edge, fist, wrist];
 
-const filePath = 'static/js/clap_data_now.txt';
+const filePath = 'static/js/clap_practice.txt';
 
 function watch_dataFile() {
     // setInterval stop
@@ -48,7 +48,7 @@ function watch_dataFile() {
             })
             .catch(error => console.error('file load error', error));
     }
-    intervalId = setInterval(load_dataFile, 500); // 0.5
+    intervalId = setInterval(load_dataFile, 300); // 0.5
 
     window.addEventListener('unload', () => {
         clearInterval(intervalId);
