@@ -1,2 +1,0 @@
-egg clap
-wrist clap

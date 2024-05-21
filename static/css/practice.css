@@ -62,7 +62,7 @@ body {
     border-color: #ffffff;
 }
 #clapBox {
-    padding: 10px;
+    padding: 5px;
     border-radius: 100px;
     margin: auto;
     width: 600px;
@@ -76,9 +76,18 @@ body {
 
 }
 #cam {
-    transform: translateY(-5%);
+    transform:translateY(-5%);
 }
 
 .col-lg-8.offset-lg-2 {
     text-align: center; 
+}
+
+#exp {
+    text-align: center;
+    color: red;
+    font-size: 13px;
+    font-family: "NanumGothic";
+    font-weight: 1000;
+    transform:translateY(-110%);
 }
