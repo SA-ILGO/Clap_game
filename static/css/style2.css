@@ -159,6 +159,11 @@ body {
     font-size: 50px;
     color:#5c4410;
 }
+
+#game-over-text{
+    font-size: 50px;
+    color:#5c4410;
+}
 #round {
     background-color: #743F21;
     border-radius: 50px;
@@ -259,6 +264,22 @@ body {
     color: #743F21;
     text-shadow: 2px 2px 1px #e4baba;
 }
+
+.restart_btn {
+    font-family: 'Bagel Fat One', cursive; 
+    background-color: #ffffff;
+    margin: 15px;
+    width: 70px;
+    height: 50px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 1px #743F21;
+    text-align: center;
+    font-size:27px;
+    color: #743F21;
+    text-shadow: 2px 2px 1px #e4baba;
+}
+
+
 .modalButton:hover{
     box-shadow: 0px 0px 0px #743F21;
 
@@ -288,6 +309,18 @@ body {
     box-shadow:5px 5px 1px rgb(193, 116, 0);
     transform:translateY(130%); 
 }
+
+.game-over_body{
+    width:250px;  
+    height:250px; 
+    padding:10px;  
+    text-align: center;
+    background-color: rgba(255, 248, 171, 0.863); 
+    border-radius:40px;  
+    box-shadow:5px 5px 1px rgb(193, 116, 0);
+    transform:translateY(130%); 
+}
+
 .result_modal_body{
     width:400px;  
     height:300px; 
@@ -298,8 +331,8 @@ body {
     box-shadow:5px 5px 1px rgb(103, 130, 34);
     transform:translateY(50%); 
 }
-.end-game-modal {
-    display: none; /* 기본적으로 숨겨진 상태 */
+/* .end-game-modal {
+    display: none; 
     position: fixed;
     top: 50%;
     left: 50%;
@@ -307,17 +340,17 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
-    z-index: 9999; /* 다른 요소 위에 보이도록 */
-}
+    z-index: 9999; 
+} */
 
-.end-game-modal button {
+/* .end-game-modal button {
     padding: 10px 20px;
-    background-color: #e4baba; /* 종료 버튼 색상 */
+    background-color: #e4baba; 
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
 .end-game-modal button:hover {
     background-color: #743F21; /* 마우스 호버 시 색상 변경 */
@@ -340,4 +373,14 @@ body {
 #restartGameBtn:hover,
 #goToMainPageBtn:hover {
     background-color: #743F21;
+}
+
+.game-over {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    background-color: rgba(255, 255, 255, 0.475);
+    z-index: 9999; 
 }

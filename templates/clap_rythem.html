@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-  <head>
+<html>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href=" {{ url_for('static', filename='css/style2.css') }}">
@@ -7,54 +8,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
-
-  </head>
-  <body>
+</head>
+<body>
     <div class="modal">
-      <div class="modal_body">
-          <div id="modal_text"></div>
-          <div class="horizonal">
-              <div class="modalButton" id="modal_btn">시작</div>
-          </div>
-      </div>
-    </div>
-    <div class="result_modal">
-      <div class="result_modal_body">
-          <h2>게임 실패!</h2>
-          <h2 id="result_text"></h2>
-          <button id="nextButton" style="display: none;" onclick="location.href='/';">다음 단계</button>
-          <button id="returnButton" style="display: none;" onclick="location.href='/';">돌아가기</button>
-      </div>
-  </div>
-  
-
-
-    <div class="horizonal">
-      <img id="logo" src="static\img\Gieoknieun_logo.gif">
-      <div id="name">박수 리듬 게임</div>
-      <img id="home" onclick="location.href='/'"  src="static/img/home.png">
-    </div>
-    <br>
-
-<BR><bR>
-    <div class="score-text"><p id="score">점수<br>0</p></div>
-    <canvas id="canvas"></canvas>
-  
-
-
-    <br><br> <br><br> <br><br> <br><br><br><br> <br><br>
-      <div class = "horizonal">
-          <div class="video-container">
-            <div class="col-lg-8  offset-lg-2">
-              <img src="{{ url_for('Stream2') }}" width="90%">
+        <div class="modal_body">
+            <div id="modal_text"></div>
+            <div class="horizonal">
+                <div class="modalButton" id="modal_btn">시작</div>
             </div>
         </div>
-      </div>
+    </div>
+    <div class="game-over" style="display: none;">
+        <div class="game-over_body">
+            <h2 id="game-over-text"></h2>
+            <button id="restart_btn">다시 하기</button>
+        </div>
+    </div>
 
-
+    <div class="horizonal">
+        <img id="logo" src="static\img\Gieoknieun_logo.gif">
+        <div id="name">박수 리듬 게임</div>
+        <img id="home" onclick="location.href='/'" src="static/img/home.png">
+    </div>
+    <br>
+    <br><br>
+    <div class="score-text"><p id="score">점수<br>0</p></div>
+    <canvas id="canvas"></canvas>
+    <br><br> <br><br> <br><br> <br><br><br><br> <br><br>
+    <div class="horizonal">
+        <div class="video-container">
+            <div class="col-lg-8 offset-lg-2">
+                <img src="{{ url_for('Stream2') }}" width="90%">
+            </div>
+        </div>
+    </div>
     <script src="{{ url_for('static', filename='js/rhythm.js') }}"></script>
-
-      
-
-    </body>
+</body>
 </html>
