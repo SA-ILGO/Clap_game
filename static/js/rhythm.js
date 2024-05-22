@@ -21,25 +21,24 @@ var dino = {
     width: 100,
     height: 800, //공룡 크기
     draw() {
-      ctx.fillStyle = "#ffffff";
-      ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
 
 //장애물
 class Cactus {
     constructor() {
-      this.x = 1500;
-      this.y = 250;
-      this.width = 70;
-      this.height = 300;
-      this.speed = 3;
+        this.x = 1500;
+        this.y = 250;
+        this.width = 70;
+        this.height = 300;
+        this.speed = 3;
     }
     draw() {
-      ctx.fillStyle = "red";
-      ctx.drawImage(clapImg, this.x, this.y, this.width, this.height);
-      this.x -= this.speed; // x 좌표를 감소시켜 왼쪽으로 이동
-
+        ctx.fillStyle = "red";
+        ctx.drawImage(clapImg, this.x, this.y, this.width, this.height);
+        this.x -= this.speed; // x 좌표를 감소시켜 왼쪽으로 이동
     }
 }
 
@@ -47,115 +46,114 @@ var timer = 0;
 var cactuses = [];
 const filePath = 'static/js/clap_data_rhythm.txt';
 var flag = 0;
+var animationFrameId;
+var bumpedCactusesCount = 0; // 특정 박스에 도달한 장애물의 수
 
 //부딪히는지 확인하는 부분
 function isBumped(dino, cactus) {
     var xDif = cactus.x - (dino.x + dino.width);
     if (xDif < 0) {
-    fetch(filePath)
-    .then(response => response.text())
-    .then(data => {
-        var lines = data.split('\n');
-        try{
-            var clap = lines[lines.length - 2].trim();
-        }catch(error){}
-        if(flag == 0 && clap == "Clap!!"){
-            score += 10;
-            flag = 1;
-            updateScore(score); // score를 업데이트하는 함수 호출
+        fetch(filePath)
+        .then(response => response.text())
+        .then(data => {
+            var lines = data.split('\n');
+            try {
+                var clap = lines[lines.length - 2].trim();
+            } catch (error) {}
+            if (flag == 0 && clap == "Clap!!") {
+                score += 10;
+                flag = 1;
+                updateScore(score); // score를 업데이트하는 함수 호출
+            } else if (flag == 1 && clap == "Ready...") {
+                flag = 0;
+            }
+        })
+        .catch(error => console.error('file load error', error));
+
+    }
+    if(xDif === 0){
+        bumpedCactusesCount++;
+        console.log(bumpedCactusesCount);
+        // 특정 박스에 도달한 장애물의 수가 10이 되면 게임 종료
+        if (bumpedCactusesCount >= 10) {
+            endGame();
         }
-        else if(flag == 1 && clap == "Ready..."){
-        flag = 0;
-        }
-    })
-    .catch(error => console.error('file load error', error));
     }
 }
 
-// const answerButton = document.getElementById('answerButton'); // 수정된 부분
-
-// const successButton = document.getElementById('successButton');
-// const failureButton = document.getElementById('failureButton');
-
-// const result_modal = document.querySelector('.result_modal');
-// const result = document.getElementById('result_text');
-
-// function finish() {
-//     console.log("finissssssh")
-//     answerButton.addEventListener("click", () => { // 수정된 부분
-//         if (score > 100 && roundClapCount > 10) {
-//             // 성공한 경우
-//             round += 1;
-//             modalText.textContent = round + " 단 계";
-//             modal.style.display = 'flex';
-//             successButton.style.display = 'block'; // 성공 버튼 표시
-//             failureButton.style.display = 'none'; // 실패 버튼 숨기기
-//         } else if (score < 100 && roundClapCount > 10) {
-//             // 실패한 경우
-//             round_result = round;
-//             result.textContent = "결과:" + round_res + "단계";
-//             result_modal.style.display = "flex";
-//             successButton.style.display = 'none'; // 성공 버튼 숨기기
-//             failureButton.style.display = 'block'; // 실패 버튼 표시
-//         }
-//     });
-// }
+function endGame() {
+    cancelAnimationFrame(animationFrameId);
+    var gameOverModal = document.querySelector('.game-over');
+    var gameOverText = document.getElementById('game-over-text');
+    if (score >= 10) {
+        gameOverText.textContent = "게임 종료! 성공!";
+    } else {
+        gameOverText.textContent = "게임 종료! 실패!";
+    }
+    gameOverModal.style.display = 'flex';
+}
 
 function executePerFrame() {
-    requestAnimationFrame(executePerFrame);
+    animationFrameId = requestAnimationFrame(executePerFrame);
 
     timer += 2;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // 박수 아이콘 생성
     dino.draw();
-    // if (roundClapCount < 11) {
-        if (timer % (Math.floor(Math.random() * 180) + 120) === 0) {
-            var cactus = new Cactus();
-            cactuses.push(cactus);
-            roundClapCount++;
-            console.log(roundClapCount);
-        }
-    // }
+    if (timer % (Math.floor(Math.random() * 180) + 120) === 0) {
+        var cactus = new Cactus();
+        cactuses.push(cactus);
+        // roundClapCount++;
+        // console.log(roundClapCount);
+    }
 
     // 박수 아이콘 충돌 여부 확인
     cactuses.forEach((a, i, o) => {
         if (a.x < 0) {
             o.splice(i, 1);
-            // console.log("delete");
         }
         a.x -= 2;
         a.draw();
         isBumped(dino, a);
     });
+}
 
+function resetGame() {
+    var gameOverModal = document.querySelector('.game-over');
+    gameOverModal.style.display = 'none';
+    score = 0;
+    roundClapCount = 0;
+    bumpedCactusesCount = 0; // 특정 박스에 도달한 장애물의 수 초기화
+    updateScore(score);
+    cactuses = [];
+    timer = 0; // 타이머 초기화
+    flag = 0; // 플래그 초기화
+    executePerFrame();
+    round++;
 }
 
 //game start
 const modal = document.querySelector('.modal');
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
     round += 1;
     modalText.textContent = round;
-    modal.style.display="flex";
-    // finish();
+    modal.style.display = "flex";
 });
-const btnCloseModal=document.getElementById('modal_btn');
-const modal_btn = document.getElementById('modal_btn');
-const modalText=document.getElementById('modal_text');
-btnCloseModal.addEventListener("click", ()=>{
-    // round_text.textContent = round;
-    modal.style.display="none";
-    // reset.click();
+const btnCloseModal = document.getElementById('modal_btn');
+const modalText = document.getElementById('modal_text');
+btnCloseModal.addEventListener("click", () => {
+    modal.style.display = "none";
     console.log("게임 시작");
     executePerFrame(); // 모달이 닫힐 때마다 게임이 시작되도록 함
 });
 
+const restartBtn = document.getElementById('restart_btn');
+restartBtn.addEventListener('click', resetGame);
 
 //점수 계산
 function updateScore(score) {
     // HTML 요소에서 점수를 업데이트
     var scoreText = document.querySelector('.score-text');
-    scoreText.textContent = "Score : " + score;
+    scoreText.innerHTML = "점수 : " + score;
 }
-
-
